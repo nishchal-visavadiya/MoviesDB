@@ -1,13 +1,16 @@
 //
-//  ContentView.swift
+//  AppView.swift
 //  MoviesDB
 //
-//  Created by Nishchal Visavadiya on 31/08/25.
+//  Created by Nishchal Visavadiya on 05/09/25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppView: View {
+    
+    @StateObject private var appViewModel = AppViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +23,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AppView()
 }

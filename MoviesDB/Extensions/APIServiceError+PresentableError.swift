@@ -1,19 +1,15 @@
 //
-//  APIServiceError.swift
+//  APIServiceError+PresentableError.swift
 //  MoviesDB
 //
 //  Created by Nishchal Visavadiya on 05/09/25.
 //
 
 import Foundation
-import SwiftUICore
+import SwiftUI
+import Networking
 
-enum APIServiceError: RepresentableError {
-    case invalidURL
-    case requestFailed
-    case decodingFailed
-    case queryParameterEncodingFailed
-    case requestBodyEncodingFailed
+extension APIServiceError: PresentableError {
     
     var title: LocalizedStringKey {
         switch self {

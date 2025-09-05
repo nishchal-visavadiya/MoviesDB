@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MoviesDBApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
         }
     }
 }

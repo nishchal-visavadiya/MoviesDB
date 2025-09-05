@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		248491862E64EF0D00C5EE4F /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 248491852E64EF0D00C5EE4F /* FactoryKit */; };
+		243D7C202E6B4DD20034D044 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 243D7C1F2E6B4DD20034D044 /* Networking */; };
+		243D7C312E6B55900034D044 /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 243D7C302E6B55900034D044 /* FactoryKit */; };
 		248491932E64FC3B00C5EE4F /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 248491922E64FC3B00C5EE4F /* Logging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		243D7C1D2E6B4D2B0034D044 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		248491692E64BA2B00C5EE4F /* MoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -28,8 +30,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243D7C312E6B55900034D044 /* FactoryKit in Frameworks */,
+				243D7C202E6B4DD20034D044 /* Networking in Frameworks */,
 				248491932E64FC3B00C5EE4F /* Logging in Frameworks */,
-				248491862E64EF0D00C5EE4F /* FactoryKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +42,7 @@
 		248491602E64BA2B00C5EE4F = {
 			isa = PBXGroup;
 			children = (
+				243D7C1D2E6B4D2B0034D044 /* Networking */,
 				2484916B2E64BA2B00C5EE4F /* MoviesDB */,
 				2484916A2E64BA2B00C5EE4F /* Products */,
 			);
@@ -72,8 +76,9 @@
 			);
 			name = MoviesDB;
 			packageProductDependencies = (
-				248491852E64EF0D00C5EE4F /* FactoryKit */,
 				248491922E64FC3B00C5EE4F /* Logging */,
+				243D7C1F2E6B4DD20034D044 /* Networking */,
+				243D7C302E6B55900034D044 /* FactoryKit */,
 			);
 			productName = MoviesDB;
 			productReference = 248491692E64BA2B00C5EE4F /* MoviesDB.app */;
@@ -104,8 +109,9 @@
 			mainGroup = 248491602E64BA2B00C5EE4F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				248491842E64EF0D00C5EE4F /* XCRemoteSwiftPackageReference "Factory" */,
 				248491912E64FC3B00C5EE4F /* XCRemoteSwiftPackageReference "swift-log" */,
+				243D7C1E2E6B4DD20034D044 /* XCLocalSwiftPackageReference "Networking" */,
+				243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2484916A2E64BA2B00C5EE4F /* Products */;
@@ -200,6 +206,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -257,6 +264,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -340,13 +348,20 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		243D7C1E2E6B4DD20034D044 /* XCLocalSwiftPackageReference "Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Networking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
-		248491842E64EF0D00C5EE4F /* XCRemoteSwiftPackageReference "Factory" */ = {
+		243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.3;
+				kind = exactVersion;
+				version = 2.5.3;
 			};
 		};
 		248491912E64FC3B00C5EE4F /* XCRemoteSwiftPackageReference "swift-log" */ = {
@@ -360,9 +375,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		248491852E64EF0D00C5EE4F /* FactoryKit */ = {
+		243D7C1F2E6B4DD20034D044 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 248491842E64EF0D00C5EE4F /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Networking;
+		};
+		243D7C302E6B55900034D044 /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = FactoryKit;
 		};
 		248491922E64FC3B00C5EE4F /* Logging */ = {
