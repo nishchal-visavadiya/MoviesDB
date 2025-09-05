@@ -1,0 +1,39 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Body Encoding Failed" : {
+
+    },
+    "Decoding Failed" : {
+
+    },
+    "Failed to decode the response." : {
+
+    },
+    "Failed to encode query parameters." : {
+
+    },
+    "Failed to encode request body." : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Invalid URL" : {
+
+    },
+    "Parameter Encoding Failed" : {
+
+    },
+    "Request Failed" : {
+
+    },
+    "The network request failed. Please try again." : {
+
+    },
+    "The URL provided was invalid." : {
+
+    }
+  },
+  "version" : "1.0"
+}
