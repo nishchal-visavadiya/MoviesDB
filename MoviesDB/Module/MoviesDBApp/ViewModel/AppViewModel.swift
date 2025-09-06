@@ -9,7 +9,7 @@ import Foundation
 import FactoryKit
 import Networking
 
-final class AppViewModel: ObservableObject {
+final class AppViewModel: ObservableObject, @unchecked Sendable {
     
     @Injected(\.moviesRepository) private var moviesDataSource: MoviesRepository
 }

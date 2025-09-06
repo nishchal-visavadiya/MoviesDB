@@ -7,5 +7,5 @@
 
 import Foundation
 
-public struct Movie {
+public struct Movie: Sendable {
 }

@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Networking",
+    name: "Shared",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15),
@@ -15,19 +15,22 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Networking",
-            targets: ["Networking"]),
+            name: "Shared",
+            targets: ["Shared"]),
     ],
     dependencies: [
-        .package(path: "../Shared"),
+        .package(
+            url: "https://github.com/hmlongco/Factory.git",
+            exact: "2.5.3"
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Networking",
+            name: "Shared",
             dependencies: [
-                .product(name: "Shared", package: "Shared"),
+                .product(name: "FactoryKit", package: "Factory"),
             ]
         ),
     ]

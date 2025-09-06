@@ -11,7 +11,7 @@ import Networking
 
 final class MoviesRepositoryImpl: MoviesRepository {
     
-    @Injected(\.moviesDataSource) private var moviesDataSource: MoviesDataSource
+    private let moviesDataSource: MoviesDataSource = Container.shared.moviesDataSource()
     
     func fetchMoviesList() async throws -> [Networking.Movie] {
         try await moviesDataSource.fetchMoviesList()

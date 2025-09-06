@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		243D7C202E6B4DD20034D044 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 243D7C1F2E6B4DD20034D044 /* Networking */; };
-		243D7C312E6B55900034D044 /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 243D7C302E6B55900034D044 /* FactoryKit */; };
 		248491932E64FC3B00C5EE4F /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 248491922E64FC3B00C5EE4F /* Logging */; };
+		24B5E9E82E6C4F4400E26294 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 24B5E9E72E6C4F4400E26294 /* Shared */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		243D7C1D2E6B4D2B0034D044 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		248491692E64BA2B00C5EE4F /* MoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243D7C312E6B55900034D044 /* FactoryKit in Frameworks */,
+				24B5E9E82E6C4F4400E26294 /* Shared in Frameworks */,
 				243D7C202E6B4DD20034D044 /* Networking in Frameworks */,
 				248491932E64FC3B00C5EE4F /* Logging in Frameworks */,
 			);
@@ -55,7 +54,6 @@
 		248491602E64BA2B00C5EE4F = {
 			isa = PBXGroup;
 			children = (
-				243D7C1D2E6B4D2B0034D044 /* Networking */,
 				2484916B2E64BA2B00C5EE4F /* MoviesDB */,
 				2484916A2E64BA2B00C5EE4F /* Products */,
 			);
@@ -76,6 +74,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 248491742E64BA2B00C5EE4F /* Build configuration list for PBXNativeTarget "MoviesDB" */;
 			buildPhases = (
+				24E7572A2E6C449300CB25F8 /* Select Env File */,
 				248491652E64BA2B00C5EE4F /* Sources */,
 				248491662E64BA2B00C5EE4F /* Frameworks */,
 				248491672E64BA2B00C5EE4F /* Resources */,
@@ -91,7 +90,7 @@
 			packageProductDependencies = (
 				248491922E64FC3B00C5EE4F /* Logging */,
 				243D7C1F2E6B4DD20034D044 /* Networking */,
-				243D7C302E6B55900034D044 /* FactoryKit */,
+				24B5E9E72E6C4F4400E26294 /* Shared */,
 			);
 			productName = MoviesDB;
 			productReference = 248491692E64BA2B00C5EE4F /* MoviesDB.app */;
@@ -124,7 +123,7 @@
 			packageReferences = (
 				248491912E64FC3B00C5EE4F /* XCRemoteSwiftPackageReference "swift-log" */,
 				243D7C1E2E6B4DD20034D044 /* XCLocalSwiftPackageReference "Networking" */,
-				243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */,
+				24B5E9E62E6C4F4400E26294 /* XCLocalSwiftPackageReference "Shared" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2484916A2E64BA2B00C5EE4F /* Products */;
@@ -146,6 +145,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24E7572A2E6C449300CB25F8 /* Select Env File */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Select Env File";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh\n#!/bin/sh\n\n# Configuration\necho \"🛠 Build Configuration: ${CONFIGURATION}\"\necho \"📁 Project Dir: ${PROJECT_DIR}\"\necho \"📦 App Target Dir: ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\n\n# Path to your environment-specific config files\nSOURCE_DIR=\"${PROJECT_DIR}/MoviesDB/Resources/Config\"\nTARGET_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/${ENV_FILE}\"\n\n# Custom build setting set in Build Settings -> User-Defined -> ENV_FILE\nFILENAME=\"${ENV_FILE}\"\n\n# Full path to the source file\nFULL_PATH=\"${SOURCE_DIR}/${FILENAME}\"\n\necho \"🔍 Looking for file: ${FULL_PATH}\"\n\n# Check if file exists\nif [ ! -f \"${FULL_PATH}\" ]; then\n  echo \"❌ Error: File not found at path: ${FULL_PATH}\"\n  echo \"💡 Tip: Check that ENV_FILE is set correctly for the '${CONFIGURATION}' configuration.\"\n  exit 1\nfi\n\n# Copy to the app bundle\necho \"📄 Copying ${FILENAME} to app bundle...\"\ncp \"${FULL_PATH}\" \"${TARGET_PATH}\"\n\n# Confirm copy\nif [ $? -ne 0 ]; then\n  echo \"❌ Error: Failed to copy ${FILENAME} to app bundle.\"\n  exit 1\nfi\n\necho \"✅ Success: ${FILENAME} has been copied to your app bundle.\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		248491652E64BA2B00C5EE4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,7 +178,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		248491722E64BA2B00C5EE4F /* Debug */ = {
+		243D7CB92E6C27910034D044 /* DevDebug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -195,7 +216,7 @@
 				DEVELOPMENT_TEAM = 5J357NZ3G7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -215,15 +236,51 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 			};
-			name = Debug;
+			name = DevDebug;
 		};
-		248491732E64BA2B00C5EE4F /* Release */ = {
+		243D7CBA2E6C27910034D044 /* DevDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5J357NZ3G7;
+				ENABLE_PREVIEWS = YES;
+				ENV_FILE = EnvDev.txt;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoviesDB/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MoviesDB Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-D DEV";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.MoviesDB.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = DevDebug;
+		};
+		243D7CBB2E6C279B0034D044 /* DevRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,7 +318,7 @@
 				DEVELOPMENT_TEAM = 5J357NZ3G7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -274,15 +331,16 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = DevRelease;
 		};
-		248491752E64BA2B00C5EE4F /* Debug */ = {
+		243D7CBC2E6C279B0034D044 /* DevRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -291,28 +349,160 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5J357NZ3G7;
 				ENABLE_PREVIEWS = YES;
+				ENV_FILE = EnvDev.txt;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesDB/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MoviesDB Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios.MoviesDB;
+				OTHER_SWIFT_FLAGS = "-D DEV";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.MoviesDB.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = DevRelease;
 		};
-		248491762E64BA2B00C5EE4F /* Release */ = {
+		248491722E64BA2B00C5EE4F /* ProdDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5J357NZ3G7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = ProdDebug;
+		};
+		248491732E64BA2B00C5EE4F /* ProdRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5J357NZ3G7;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ProdRelease;
+		};
+		248491752E64BA2B00C5EE4F /* ProdDebug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -321,26 +511,66 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5J357NZ3G7;
 				ENABLE_PREVIEWS = YES;
+				ENV_FILE = Env.txt;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesDB/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoviesDB;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-D PROD";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.MoviesDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = ProdDebug;
+		};
+		248491762E64BA2B00C5EE4F /* ProdRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5J357NZ3G7;
+				ENABLE_PREVIEWS = YES;
+				ENV_FILE = Env.txt;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoviesDB/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoviesDB;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-D PROD";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.MoviesDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = ProdRelease;
 		};
 /* End XCBuildConfiguration section */
 
@@ -348,20 +578,24 @@
 		248491642E64BA2B00C5EE4F /* Build configuration list for PBXProject "MoviesDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				248491722E64BA2B00C5EE4F /* Debug */,
-				248491732E64BA2B00C5EE4F /* Release */,
+				248491722E64BA2B00C5EE4F /* ProdDebug */,
+				243D7CB92E6C27910034D044 /* DevDebug */,
+				248491732E64BA2B00C5EE4F /* ProdRelease */,
+				243D7CBB2E6C279B0034D044 /* DevRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = DevDebug;
 		};
 		248491742E64BA2B00C5EE4F /* Build configuration list for PBXNativeTarget "MoviesDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				248491752E64BA2B00C5EE4F /* Debug */,
-				248491762E64BA2B00C5EE4F /* Release */,
+				248491752E64BA2B00C5EE4F /* ProdDebug */,
+				243D7CBA2E6C27910034D044 /* DevDebug */,
+				248491762E64BA2B00C5EE4F /* ProdRelease */,
+				243D7CBC2E6C279B0034D044 /* DevRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = DevDebug;
 		};
 /* End XCConfigurationList section */
 
@@ -370,17 +604,13 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Networking;
 		};
+		24B5E9E62E6C4F4400E26294 /* XCLocalSwiftPackageReference "Shared" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Shared;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Factory";
-			requirement = {
-				kind = exactVersion;
-				version = 2.5.3;
-			};
-		};
 		248491912E64FC3B00C5EE4F /* XCRemoteSwiftPackageReference "swift-log" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-log.git";
@@ -396,15 +626,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};
-		243D7C302E6B55900034D044 /* FactoryKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 243D7C2F2E6B55900034D044 /* XCRemoteSwiftPackageReference "Factory" */;
-			productName = FactoryKit;
-		};
 		248491922E64FC3B00C5EE4F /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 248491912E64FC3B00C5EE4F /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;
+		};
+		24B5E9E72E6C4F4400E26294 /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

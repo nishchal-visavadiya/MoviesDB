@@ -8,7 +8,7 @@
 import Foundation
 import Logging
 
-final class ConsoleLogger: LogHandler {
+final class ConsoleLogger: LogHandler, @unchecked Sendable {
     
     // MARK: Public properties
     var logLevel: Logger.Level = .trace

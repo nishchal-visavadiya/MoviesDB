@@ -10,7 +10,7 @@ import FactoryKit
 
 final class MoviesDataSourceImpl: MoviesDataSource {
     
-    @Injected(\.apiService) private var apiService: APIService
+    private let apiService: APIService = Container.shared.apiService()
     
     func fetchMoviesList() async throws -> [Movie] {
         []
