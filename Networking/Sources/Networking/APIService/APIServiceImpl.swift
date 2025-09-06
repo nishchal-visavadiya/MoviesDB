@@ -20,7 +20,23 @@ final class APIServiceImpl: APIService {
         self.successStatusCodes = successStatusCodes
     }
     
-    func call<T: Decodable>(
+    func call<T>(endpoint: TMDBEndpoint) async throws -> T where T : Decodable {
+        try await call(endpoint: endpoint)
+    }
+    
+    func call<T>(endpoint: TMDBEndpoint, body: any Encodable) async throws -> T where T : Decodable {
+        try await call(endpoint: endpoint, body: body)
+    }
+    
+    func call<T>(endpoint: TMDBEndpoint, queryParams: any Encodable) async throws -> T where T : Decodable {
+        try await call(endpoint: endpoint, queryParams: queryParams)
+    }
+    
+    func call<T>(endpoint: TMDBEndpoint, queryParams: any Encodable, body: any Encodable) async throws -> T where T : Decodable {
+        try await call(endpoint: endpoint, queryParams: queryParams, body: body)
+    }
+    
+    private func call<T: Decodable>(
         endpoint: TMDBEndpoint,
         queryParams: Encodable? = nil,
         body: Encodable? = nil
