@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Shared
 
 enum TMDBEndpoint {
     case popularMovies
+    
+    nonisolated(unsafe) static let authConfig = AuthConfig()
     
     var fullEndpoint: String {
         return basURL + version + endPoint
@@ -29,9 +32,11 @@ enum TMDBEndpoint {
     }
     
     var basURL: String {
-        switch self {
-        default:
-            return "https://api.themoviedb.org/"
+        switch Config.environment {
+        case .dev:
+            "https://api.themoviedb.org/"
+        case .prod:
+            "https://api.themoviedb.org/"
         }
     }
     
@@ -45,7 +50,7 @@ enum TMDBEndpoint {
     var headers: [String: String] {
         let headers: [String: String] = [
             "Content-Type": "application/json",
-            "api_key": "YOUR_API_KEY_HERE"
+            "Authorization": "Bearer " + TMDBEndpoint.authConfig.token
         ]
         switch self {
         default:

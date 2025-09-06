@@ -1,5 +1,5 @@
 //
-//  Repository.swift
+//  MoviesRepository.swift
 //  MoviesDB
 //
 //  Created by Nishchal Visavadiya on 05/09/25.
