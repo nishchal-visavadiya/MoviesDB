@@ -16,10 +16,19 @@
     "Failed to encode request body." : {
 
     },
-    "Hello, world!" : {
+    "Go to Movies List" : {
 
     },
     "Invalid URL" : {
+
+    },
+    "Logged Out" : {
+
+    },
+    "Movie Details View" : {
+
+    },
+    "Onboarding" : {
 
     },
     "Parameter Encoding Failed" : {

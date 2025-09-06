@@ -24,7 +24,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func initialiseAppScene(window: UIWindow?) {
         // Create SwiftUI root view
-        let rootView = MoviesDBApp()
+        let rootView = MoviesDBApp(
+            navigator: .init(),
+            sceneViewModel: .init(),
+            appViewModel: .init()
+        )
         // Use UIHostingController to bridge SwiftUI → UIKit
         let hostingController = UIHostingController(rootView: rootView)
         window?.rootViewController = hostingController
