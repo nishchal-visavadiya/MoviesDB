@@ -14,6 +14,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     
     override init() {
         super.init()
+        ConfigSetup.setup()
         bootStrapLogger()
     }
     

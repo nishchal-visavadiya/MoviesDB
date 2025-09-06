@@ -8,6 +8,6 @@
 import Foundation
 import Networking
 
-protocol MoviesRepository {
+protocol MoviesRepository: Sendable {
     func fetchMoviesList() async throws -> [Movie]
 }

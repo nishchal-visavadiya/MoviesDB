@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol MoviesDataSource {
+public protocol MoviesDataSource: Sendable {
     func fetchMoviesList() async throws -> [Movie]
 }

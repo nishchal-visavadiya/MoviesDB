@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol APIService {
+protocol APIService: Sendable {
     func call<T: Decodable>(endpoint: TMDBEndpoint, queryParams: Encodable?, body: Encodable?) async throws -> T
 }

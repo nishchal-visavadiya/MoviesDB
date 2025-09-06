@@ -6,20 +6,17 @@
 //
 
 import Foundation
+import Shared
 import Logging
 
 func bootStrapLogger() {
-    #if PROD
-    LoggingSystem.bootstrap(NoOpLogger.init)
-    #elseif STAGE
-    LoggingSystem.bootstrap(NoOpLogger.init)
-    #elseif DEV
-    LoggingSystem.bootstrap(CombinedLogger.init)
-    #elseif QA
-    LoggingSystem.bootstrap(FileLogger.init)
-    #else
-    LoggingSystem.bootstrap(CombinedLogger.init)
-    #endif
+    print("Bootstrapping Logger for \(Config.environment) environment and \(Config.compilerFlag) compiler flag")
+    switch Config.environment {
+    case .dev:
+        LoggingSystem.bootstrap(CombinedLogger.init)
+    case .prod:
+        LoggingSystem.bootstrap(NoOpLogger.init)
+    }
 }
 
 let log: Logger = {
