@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-xo-aRj">
-                                <rect key="frame" x="118" y="372.33333333333331" width="157" height="157.33333333333331"/>
+                                <rect key="frame" x="39.333333333333258" y="293.66666666666652" width="314.33333333333348" height="314.66666666666674"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5cx-xo-aRj" secondAttribute="height" id="o3q-0e-HlB"/>
                                 </constraints>
@@ -26,7 +27,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstItem="5cx-xo-aRj" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.4" id="FfU-Jd-ihh"/>
+                            <constraint firstItem="5cx-xo-aRj" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="FfU-Jd-ihh"/>
                             <constraint firstItem="5cx-xo-aRj" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="wON-ci-pvH"/>
                             <constraint firstItem="5cx-xo-aRj" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="xeu-Lr-hX1"/>
                         </constraints>

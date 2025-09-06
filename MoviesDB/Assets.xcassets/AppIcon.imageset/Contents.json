@@ -3,6 +3,16 @@
     {
       "filename" : "AppIcon.png",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "AppIconDark.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
