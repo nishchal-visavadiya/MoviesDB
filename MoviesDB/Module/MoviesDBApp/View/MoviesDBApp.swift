@@ -2,17 +2,26 @@
 //  MoviesDBApp.swift
 //  MoviesDB
 //
-//  Created by Nishchal Visavadiya on 31/08/25.
+//  Created by Nishchal Visavadiya on 05/09/25.
 //
 
 import SwiftUI
 
-@main
-struct MoviesDBApp: App {
+struct MoviesDBApp: View {
     
-    var body: some Scene {
-        WindowGroup {
-            AppView()
+    @StateObject private var appViewModel = AppViewModel()
+    
+    var body: some View {
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
         }
+        .padding()
     }
+}
+
+#Preview {
+    MoviesDBApp()
 }
