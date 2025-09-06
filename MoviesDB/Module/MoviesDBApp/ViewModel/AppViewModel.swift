@@ -11,5 +11,5 @@ import Networking
 
 final class AppViewModel: ObservableObject {
     
-    @Injected(\.moviesDataSource) private var moviesDataSource: MoviesDataSource
+    @Injected(\.moviesRepository) private var moviesDataSource: MoviesRepository
 }
